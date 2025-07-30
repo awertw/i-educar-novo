@@ -8,9 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('pmieducar.matricula_turma', function (Blueprint $table) {
-            $table->integer('cod_curso_profissional')->nullable();
-        });
+       
     }
 
     public function down(): void

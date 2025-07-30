@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
-        DB::statement('ALTER TABLE IF EXISTS pmieducar.servidor ADD COLUMN complementacao_pedagogica smallint[];');
+      
     }
 
     /**

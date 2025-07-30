@@ -13,11 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('pmieducar.aluno', static function (Blueprint $table) {
-            return $table
-                ->integer('tipo_transporte')
-                ->default(0);
-        });
+       
     }
 
     /**

@@ -13,9 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('pmieducar.escola', function (Blueprint $table) {
-            $table->integer('qtd_tradutor_interprete_libras_outro_ambiente')->nullable();
-        });
+      
     }
 
     /**

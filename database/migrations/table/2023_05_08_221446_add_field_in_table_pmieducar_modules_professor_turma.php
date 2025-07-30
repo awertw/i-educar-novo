@@ -8,9 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('modules.professor_turma', function (Blueprint $table) {
-            $table->smallInteger('outras_unidades_curriculares_obrigatorias')->default(0);
-        });
+       
     }
 
     public function down(): void
