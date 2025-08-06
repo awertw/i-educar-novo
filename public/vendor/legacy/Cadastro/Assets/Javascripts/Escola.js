@@ -827,19 +827,17 @@ $j(document).ready(function() {
   verificaCamposDepAdm();
   habilitaCampoEsferaAdministrativa();
 
-  let verificaLatitudeLongitude = () => {
-    let regex = new RegExp('^(\\-?\\d+(\\.\\d+)?)\\.\\s*(\\-?\\d+(\\.\\d+)?)\$');
+ let verificaLatitudeLongitude = () => {
+    let longitude = $j('#longitude').val().replace(',', '.').trim();
+    let latitude = $j('#latitude').val().replace(',', '.').trim();
 
-    let longitude = $j('#longitude').val();
-
-    if (longitude && !regex.exec(longitude)) {
+    if (longitude && !isValidLongitude(Number(longitude))) {
       messageUtils.error('Longitude informada inválida.');
       $j('#longitude').val('').focus();
       longitude = '';
     }
 
-    let latitude = $j('#latitude').val();
-    if (latitude && !regex.exec(latitude)) {
+    if (latitude && !isValidLatitude(Number(latitude))) {
       messageUtils.error('Latitude informada inválida.');
       $j('#latitude').val('').focus();
       latitude = '';
@@ -851,12 +849,19 @@ $j(document).ready(function() {
       $j('#latitude').makeRequired();
       $j('#longitude').makeRequired();
     }
-
-  }
+}
 
   $j('#latitude').on('change', verificaLatitudeLongitude);
   $j('#longitude').on('change', verificaLatitudeLongitude);
 });
+
+function isValidLatitude(lat) {
+  return !isNaN(lat) && lat >= -90 && lat <= 90;
+}
+
+function isValidLongitude(lon) {
+  return !isNaN(lon) && lon >= -180 && lon <= 180;
+}
 
 const cnpj = document.getElementById('cnpj');
 
